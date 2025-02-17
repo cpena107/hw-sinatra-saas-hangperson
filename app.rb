@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/cookies'
 require_relative 'lib/wordguesser_game'
-require 'byebug'
 
 class WordGuesserApp < Sinatra::Base
   enable :sessions
@@ -43,7 +42,6 @@ class WordGuesserApp < Sinatra::Base
     word = params[:word] || WordGuesserGame.get_random_word
     # NOTE: don't change previous line - it's needed by autograder!
     @game = WordGuesserGame.new(word, '', '')
-    #byebug
     redirect '/show'
   end
   
